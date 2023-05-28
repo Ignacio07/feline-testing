@@ -186,9 +186,100 @@ if ($query == 5){
   } else {
     echo json_encode(false);
   }
-
-  
-
 }
+/*
+/*Modificar Stock 
+if ($query == 6) {
+  $codigoProducto = $_POST['codigo'];
+  $stock = $_POST['newStock'];
 
+  include("connectDB.php");
+
+  $sql = "UPDATE producto
+          SET stock_actual = :newStock
+          WHERE codigo = :codigo";
+
+  $sentencia = $conn->prepare($sql);
+  $sentencia->bindValue(':codigo', $codigoProducto);
+  $sentencia->bindValue(':stock_actual', $codigoProducto);
+  $sentencia->execute();
+
+  $rowCount = $sentencia->rowCount(); // Obtener el número de filas afectadas por la consulta
+
+  include("disconnectDB.php");
+
+  $response = ($rowCount > 0) ? true : false; // Verificar si se actualizó al menos una fila
+
+  echo json_encode($response);
+}
+/*Modificar Producto
+if ($query == 7) {
+  $codigoProducto = $_POST['codigo'];
+  $newCodigoProducto = $_POST['newCodigo'];
+  $Nombre = $_POST['newNombre'];
+  $Descripcion = $_POST['newDescripcion'];
+  $Precio = $_POST['newPrecio'];
+  $stock_recomendado = $_POST['newStock_recomendado']; 
+  $stock_minimo = $_POST['newStock_minimo']
+  $proveedor = $_POST['newProveedor']
+  $categoria = $_POST['newCategoria']
+  include("connectDB.php");
+  $sql = "UPDATE producto
+          SET codigo = :newCodigo
+          SET nombre = :newNombre
+          SET descripcion =: newDescripcion
+          SET precio =: newPrecio
+          SET stock_recomendado =: newStock_recomendado
+          SET stock_minimo =: newStock_minimo
+          SET nombre_proveedor =: newProveedor
+          WHERE codigo = :codigo"
+          ;
+  $sql = "UPDATE corresponde
+          SET nombre_categoria =: newCategoria
+          WHERE codigo_producto =: codigo"
+          ;
+    $sentencia = $conn->prepare($sql);
+    $sentencia->bindValue(':codigo', $codigoProducto);
+    $sentencia->bindValue(':newCodigo', $newCodigoProducto);
+    $sentencia->bindValue(':newNombre', $Nombre);
+    $sentencia->bindValue(':newDescripcion', $Descripcion);
+    $sentencia->bindValue(':newPrecio', $Precio);
+    $sentencia->bindValue(':newStock_recomendado', $stock_recomendado);
+    $sentencia->bindValue(':newStock_minimo', $stock_minimo);
+    $sentencia->bindValue(':newProveedor', $proveedor);
+    $sentencia->bindValue(':newCategoria', $categoria);
+    $sentencia->execute();
+  
+    $rowCount = $sentencia->rowCount(); // Obtener el número de filas afectadas por la consulta
+  
+    include("disconnectDB.php");
+  
+    $response = ($rowCount > 0) ? true : false; // Verificar si se actualizó al menos una fila
+  
+    echo json_encode($response);   
+} 
+
+/*Eliminar Producto 
+if ($query == 8) {
+  $codigoProducto = $_POST['codigo'];
+
+  include("connectDB.php");
+
+  $sql = "DELETE from producto
+          WHERE codigo = :codigo";
+
+  $sentencia = $conn->prepare($sql);
+  $sentencia->bindValue(':codigo', $codigoProducto);
+  $sentencia->bindValue(':stock_actual', $codigoProducto);
+  $sentencia->execute();
+
+  $rowCount = $sentencia->rowCount(); // Obtener el número de filas afectadas por la consulta
+
+  include("disconnectDB.php");
+
+  $response = ($rowCount > 0) ? true : false; // Verificar si se actualizó al menos una fila
+
+  echo json_encode($response);
+}
+*/
 ?>
