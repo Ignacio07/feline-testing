@@ -136,10 +136,10 @@ function UsersList () {
       {dataLoaded ? (
         users.map(user => (
           (user[1]!=='Mirle Jaque' && user[0]!=='15912517-3')?
-            <div key={user[0]} className='flex flex-row justify-between pb-2'>
+            <div key={user[0]} className='flex flex-row justify-between'>
             <p>{user[0]}</p>
             <p className='pl-8 text-left'>{user[1]}</p>
-            <button onClick={() => deleteUser(user[0])} className='text-sm text-white text-center transition duration-150 hover:bg-red-900 bg-red-600 font-bold py-1 px-2 rounded ml-3'>Eliminar</button>
+            <button onClick={() => deleteUser(user[0])} className='pl-8 underline text-red-500'>Eliminar</button>
             </div>
             :null          
         ))
@@ -153,14 +153,14 @@ function UsersList () {
 
           <div className='flex flex-col'>
             <label htmlFor='userRut'>Rut</label>
-            <input id='userRut' type='text' value={userRut} placeholder='0000000-0' onChange={handleUserRutChange}></input>
+            <input id='userRut' type='text' value={userRut} onChange={handleUserRutChange}></input>
           </div>
           <div className='flex flex-col'>
             <label htmlFor='userName'>Nombre de usuario</label>
-            <input id='userName' type='text' value={userName} placeholder='Nombre' onChange={handleUserNameChange}></input>
+            <input id='userName' type='text' value={userName} onChange={handleUserNameChange}></input>
           </div>
-          <div className='flex justify-center'>
-            <button className='text-sm text-white transition duration-150 hover:bg-[#00ff00] bg-[#93c47d]  font-bold py-2 px-4 rounded mt-4'>Registrar</button>
+          <div>
+            <button className='underline text-blue-500'>+ Agregar</button>
           </div>
           
         </form>
