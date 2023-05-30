@@ -18,7 +18,7 @@ function AdministracionUsuarios(){
       <div className='flex flex-col bg-[#eeeeee] p-2 border-2 border-black text-[1.5rem] '>
         <div className='flex justify-end'>
           <button onClick={hideProductContainer}>
-            <FaTimes />
+            <FaTimes className='hover:text-white' />
           </button>
         </div>
         <div className='p-8'>

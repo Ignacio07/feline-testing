@@ -36,9 +36,9 @@ function Private(){
         </div>
 
         <div className='flex flex-col'>
-          <Link to={'/private/logout'} className='pr-3 underline text-[1.5rem] text-end'>Cerrar Sesión</Link>
+          <Link to={'/private/logout'} className='text-sm text-white text-center transition duration-150 hover:bg-red-900 bg-red-600 font-bold py-2 px-4 rounded m-3'>Cerrar Sesión</Link>
           {(userName==='Mirle Jaque' && userRut==='15912517-3')?
-            <button onClick={showUserAdminContainer} className='pr-3 underline text-[1.5rem] text-end'>Administrar Usuarios</button>
+            <button onClick={showUserAdminContainer} className='text-sm text-white text-center transition duration-150 hover:bg-indigo-900 bg-blue-600 font-bold py-2 px-4 rounded m-3'>Administrar Usuarios</button>
             : null}
           
         </div>
